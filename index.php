@@ -10,13 +10,14 @@ if (isset($_POST['feedback'])) {
   /*Inserting Data in DB*/
   $result = $collection->insertOne( [  'date' => date('Y/m/d')   , 'feedback' => $feedback ] );
   /***Output for the insertion shown***/
+  if(isset($result)){
   $i = 1 ;
   echo "Inserted with Object ID '{$result->getInsertedId()}'";
 }
+else{ $i=2 ; }
+}
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
