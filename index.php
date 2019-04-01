@@ -31,6 +31,22 @@ else{ $i=2 ; }
         <link rel="stylesheet" href="form.css" >
         <script src="form.js"></script>
     </head>
+    <style>
+.alert-success {
+  padding: 20px;
+  background-color: green;
+  color: white;
+}
+
+.alert-error {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+
+
+</style>
     <body >
         <div class="container">
             <div id="form-main">
@@ -40,15 +56,19 @@ else{ $i=2 ; }
                         </p>
                         <?php
                         if($i==1){ echo'
-                        <div class="form-group">
-                            <div class="alert alert-success">Feedback Added Successfully</div>
-                        </div>';
+                          <div class="alert-success">
+
+    <strong> Feedback Added Successfully</strong>
+  </div>
+';
 
 											}
                         if($i==2){ echo'
-                        <div class="form-group">
-                            <div class="alert alert-danger">Error Sending Feedback</div>
-                        </div>';
+                          <div class="alert-error">
+
+    <strong>Error Sending Feedback</strong>
+  </div>
+';
 											//	echo "<script> alert($result); </script>";
 
 											} ?>
