@@ -73,7 +73,7 @@ else{ $i=2 ; }
 
 											} ?>
                         <p class="text">
-                            <textarea name="feedback" class="feedback-input" id="comment" placeholder="Feedback"></textarea>
+                            <textarea name="feedback" class="feedback-input" id="comment" placeholder="Feedback" required=""></textarea>
                         </p>
                         <div class="submit">
                             <button type="submit" class="button-blue">SUBMIT</button>
