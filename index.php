@@ -1,3 +1,23 @@
+<?php
+/**Config File for DB connection**/
+require 'config.php' ;
+/******Selecting Collection For usage*******/
+$i=0 ;
+if (isset($_POST['feedback'])) {
+  $var = 'feedback';
+  $feedback = $_POST['feedback'] ;
+  $collection = $db->$var;
+  /*Inserting Data in DB*/
+  $result = $collection->insertOne( [  'date' => date('Y/m/d')   , 'feedback' => $feedback ] );
+  /***Output for the insertion shown***/
+  $i = 1 ;
+  echo "Inserted with Object ID '{$result->getInsertedId()}'";
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,8 +35,22 @@
             <div id="form-main">
                 <div id="form-div">
                   <!-- id="reused_form"  -->
-                    <form class="montform" action="send_feedback.php" method="post">
+                    <form class="montform" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
                         </p>
+                        <?php
+                        if($i==1){ echo'
+                        <div class="form-group">
+                            <div class="alert alert-success">Feedback Added Successfully</div>
+                        </div>';
+
+											}
+                        if($i==2){ echo'
+                        <div class="form-group">
+                            <div class="alert alert-danger">Error Sending Feedback</div>
+                        </div>';
+											//	echo "<script> alert($result); </script>";
+
+											} ?>
                         <p class="text">
                             <textarea name="feedback" class="feedback-input" id="comment" placeholder="Feedback"></textarea>
                         </p>
